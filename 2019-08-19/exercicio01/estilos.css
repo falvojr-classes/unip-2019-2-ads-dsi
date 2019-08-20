@@ -1,0 +1,12 @@
+body {
+    background-color: green;
+}
+
+h1, h2 {
+    color: white;
+    font-family: monospace;
+}
+
+.fundo-cinza {
+    background-color: gray;
+}
