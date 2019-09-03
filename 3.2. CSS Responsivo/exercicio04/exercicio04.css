@@ -1,0 +1,10 @@
+body {
+    background-color: blue;
+}
+
+/* Web Design Responsivo: Media Query */
+@media only screen and (min-width: 768px) {
+    body {
+        background-color: green;
+    }
+}

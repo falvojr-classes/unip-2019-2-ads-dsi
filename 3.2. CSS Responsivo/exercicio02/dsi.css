@@ -14,23 +14,8 @@
 [class*="col-"] {
     width: 100%;
     float: left;
-    margin-top: 6px;
-}
-
-/* Colunas Tablets (600px a 767px) */
-@media only screen and (min-width: 600px) {
-    .col-s-1 {width: 8.33%;}
-    .col-s-2 {width: 16.66%;}
-    .col-s-3 {width: 25%;}
-    .col-s-4 {width: 33.33%;}
-    .col-s-5 {width: 41.66%;}
-    .col-s-6 {width: 50%;}
-    .col-s-7 {width: 58.33%;}
-    .col-s-8 {width: 66.66%;}
-    .col-s-9 {width: 75%;}
-    .col-s-10 {width: 83.33%;}
-    .col-s-11 {width: 91.66%;}
-    .col-s-12 {width: 100%;}
+    /* Margem no topo para inclusão de divs vazias (organizacão) */
+    margin-top: 4px;
 }
 
 /* Colunas Desktop (igual ou maior que 768px) */
@@ -54,7 +39,7 @@
 /* Inicio: Estilos Extras (utilitários, labels, inputs etc) */
 
 label {
-    padding: 12px 12px 12px 0;
+    padding: 12px 12px 12px 12px; /* Top, Right, Botton, Left */
     display: inline-block;
 }
 
@@ -68,6 +53,7 @@ input:not([type='checkbox']):not([type='submit']), select, textarea {
 
 input[type='submit'], button {
     width: 100%;
+    /* RGB (Red, Green, Blue) */
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;

@@ -1,0 +1,26 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #CCCCCC;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: left;
+    padding: 12px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: black;
+    color: white;
+}
+
+@media only screen and (min-width: 768px) {
+    li {
+        float: left;
+    }
+}
