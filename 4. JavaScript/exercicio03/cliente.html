@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>UNIP</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/dsi.css" />
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-2"></div><!-- 17% à esquerda -->
+    <div class="col-8">
+      <!-- 66% para o formulário -->
+      <h1 class="center">Cadastro</h1>
+      <div class="row">
+        <div class="col-2">
+          <label for="nome">Nome:</label>
+        </div>
+        <div class="col-10">
+          <input id="nome" type="text" placeholder="Digite o seu nome completo" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <label for="cpf">CPF:</label>
+        </div>
+        <div class="col-10">
+          <input id="cpf" type="text" placeholder="Digite o seu CPF" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <label for="email">Email:</label>
+        </div>
+        <div class="col-10">
+          <input id="email" type="email" placeholder="Digite o seu email pessoal" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <label for="senha">Senha:</label>
+        </div>
+        <div class="col-10">
+          <input id="senha" type="password" placeholder="Digite uma senha numérica" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <label for="telefone">Telefone:</label>
+        </div>
+        <div class="col-4">
+          <input id="telefone" type="number" placeholder="Telefone pessoal" />
+        </div>
+        <div class="col-2">
+          <label for="cep">CEP:</label>
+        </div>
+        <div class="col-4">
+          <input id="cep" type="number" placeholder="CEP" onfocusout="buscarCep()" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <label for="logradouro">Logradouro:</label>
+        </div>
+        <div class="col-10">
+          <input id="logradouro" type="text" placeholder="Digite seu endereco" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <label for="complemento">Complemento:</label>
+        </div>
+        <div class="col-10">
+          <input id="complemento" type="text" placeholder="Complemento do endereco" />
+        </div>
+      </div>
+      <button>Cadastrar</button>
+    </div>
+    <div class="col-2"></div><!-- 17% à direita -->
+  </div>
+
+  <script src="js/cliente.js"></script>
+</body>
+
+</html>
