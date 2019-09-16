@@ -13,3 +13,7 @@
     + [CSS Responsivo](https://docs.google.com/presentation/d/11kqObIiKJBzXU_9iZvkkoICGxPTwXZPE9uaAolvtIik/edit?usp=sharing)
 1. [JavaScript (JS)](https://docs.google.com/presentation/d/1eWflVoXsAFD82lxo0rm6HDCpgrLA3-20932nwqEJ1Fo/edit?usp=sharing)
 1. [Frameworks e Bibliotecas](https://docs.google.com/presentation/d/1Ca6hylig_zHva4u88dmsA92QnYsdRRm680Yr9fLJs5o/edit?usp=sharing)
+
+## Trabalhos
+
+- [Trabalho Preparatório NP1](https://docs.google.com/document/d/1ndEKfg276AFfw79Nt5HxM-dxmiTGr1VQbR_PTDSjtdc/edit?usp=sharing)
