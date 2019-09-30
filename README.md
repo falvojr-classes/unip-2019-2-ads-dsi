@@ -18,4 +18,4 @@
 
 - [NP1](https://docs.google.com/document/d/1ndEKfg276AFfw79Nt5HxM-dxmiTGr1VQbR_PTDSjtdc/edit?usp=sharing)
 
-## Link Projeto Base: [Template PIM](https://github.com/falvojr-classes/unip-2019-2-ads-template-pim)
+## Link para o Projeto Base: [Template PIM](https://github.com/falvojr-classes/unip-2019-2-ads-template-pim)
