@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>PIM – Login</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../base/dsi.css" />
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-4"></div><!-- 33% à esquerda -->
+    <div class="col-4">
+      <!-- 33% para o formulário -->
+      <h1 class="center">Login</h1>
+      <div class="row">
+        <div class="col-3">
+          <label for="email">Email:</label>
+        </div>
+        <div class="col-9">
+          <input id="email" type="email" placeholder="Digite seu email" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <label for="senha">Senha:</label>
+        </div>
+        <div class="col-9">
+          <input id="senha" type="password" placeholder="Digite sua senha" required />
+        </div>
+      </div>
+      <button onclick="logar()">Entrar</button>
+    </div>
+    <div class="col-4"></div><!-- 33% à direita -->
+  </div>
+
+  <script src="../base/dsi.js"></script>
+  <script src="../js/login.js"></script>
+</body>
+
+</html>
