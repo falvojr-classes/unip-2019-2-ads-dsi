@@ -1,14 +1,14 @@
 async function cadastrar() {
     try {
         const usuario = {};
-        usuario.nome = getById('nome').value;
-        usuario.cpf = getById('cpf').value;
-        usuario.email = getById('email').value;
-        usuario.senha = getById('senha').value;
-        usuario.telefone = getById('telefone').value;
-        usuario.cep = getById('cep').value;
-        usuario.logradouro = getById('logradouro').value;
-        usuario.complemento = getById('complemento').value;
+        usuario.nome = buscarPorId('nome').value;
+        usuario.cpf = buscarPorId('cpf').value;
+        usuario.email = buscarPorId('email').value;
+        usuario.senha = buscarPorId('senha').value;
+        usuario.telefone = buscarPorId('telefone').value;
+        usuario.cep = buscarPorId('cep').value;
+        usuario.logradouro = buscarPorId('logradouro').value;
+        usuario.complemento = buscarPorId('complemento').value;
         usuario.tipo = 'CLIENTE';
 
         const resp = await fetch(`http://localhost:8080/usuarios`, {
@@ -31,7 +31,7 @@ async function cadastrar() {
 
 async function buscarCep() {
     try {
-        const cep = getById('cep').value;
+        const cep = buscarPorId('cep').value;
         if (cep) {
             const resp = await fetch(`https://viacep.com.br/ws/${cep}/json/`, {
                 method: 'GET'
@@ -39,8 +39,8 @@ async function buscarCep() {
             if (resp.ok) {
                 const dados = await resp.json();
                 if (dados.logradouro) {
-                    getById('logradouro').value = `${dados.logradouro}, ${dados.bairro}`;
-                    getById('complemento').value = dados.complemento;
+                    buscarPorId('logradouro').value = `${dados.logradouro}, ${dados.bairro}`;
+                    buscarPorId('complemento').value = dados.complemento;
                 }
             }
         }
