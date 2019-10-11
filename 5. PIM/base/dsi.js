@@ -1,4 +1,4 @@
-function buscarPorId(id) {
+function buscarElementoPorId(id) {
     return document.getElementById(id);
 }
 
@@ -22,8 +22,12 @@ function buscarJsonLocalmente(chave) {
     return JSON.parse(buscarLocalmente(chave));
 }
 
+function criarElemento(tag) {
+    return document.createElement('tag');
+}
+
 function criarColuna(classeColuna) {
-    const coluna = document.createElement('div');
+    const coluna = criarElemento('div');
     coluna.classList.add(classeColuna, 'center');
     return coluna;
 }

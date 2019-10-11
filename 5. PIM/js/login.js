@@ -1,8 +1,8 @@
 async function logar() {
     try {
         const usuario = {};
-        usuario.email = buscarPorId('email').value;
-        usuario.senha = buscarPorId('senha').value;
+        usuario.email = buscarElementoPorId('email').value;
+        usuario.senha = buscarElementoPorId('senha').value;
 
         const resp = await fetch(`http://localhost:8080/login`, { 
             method: 'POST',
