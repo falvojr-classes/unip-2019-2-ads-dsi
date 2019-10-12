@@ -20,8 +20,10 @@ async function cadastrar() {
         });
         if (resp.ok) {
             alert('Usuário cadastrado com sucesso!');
+            redirecionar('login.html');
         } else {
-            alert("Erro inesperado na API!");
+            const erro = await resp.json();
+            alert(erro.mensagem);
         }
     } catch (erro) {
         console.log(erro);

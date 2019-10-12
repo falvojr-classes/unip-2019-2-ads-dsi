@@ -2,16 +2,16 @@ function buscarElementoPorId(id) {
     return document.getElementById(id);
 }
 
-function redirecionar(nomePagina) {
-    window.location.href = `${nomePagina}.html`;
+function redirecionar(pagina) {
+    window.location.href = pagina;
 }
 
 function salvarLocalmente(chave, valor) {
     localStorage.setItem(chave, valor);
 }
 
-function salvarJsonLocalmente(chave, valor) {
-    salvarLocalmente(chave, JSON.stringify(valor));
+function salvarJsonLocalmente(chave, objeto) {
+    salvarLocalmente(chave, JSON.stringify(objeto));
 }
 
 function buscarLocalmente(chave) {
@@ -23,7 +23,7 @@ function buscarJsonLocalmente(chave) {
 }
 
 function criarElemento(tag) {
-    return document.createElement('tag');
+    return document.createElement(tag);
 }
 
 function criarColuna(classeColuna) {

@@ -13,9 +13,11 @@ async function logar() {
         });
         if(resp.ok) {
             const usuarioLogado = await resp.json();
-            alert(`${usuarioLogado.nome} logado com sucesso!`);
+            salvarJsonLocalmente("usuarioLogado", usuarioLogado);
+            redirecionar("home.html");
         } else {
-            alert("Erro inesperado na API!");
+            const erro = await resp.json();
+            alert(erro.mensagem);
         }
     } catch(erro) {
         console.log(erro);
