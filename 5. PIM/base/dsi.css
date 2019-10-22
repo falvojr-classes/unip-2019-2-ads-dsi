@@ -90,4 +90,17 @@ input[type='submit']:hover, button:hover {
     background-color: blue;
 }
 
+.row-odd {
+    background-color: rgb(223, 223, 223);
+}
+
+.row-pair {
+    background-color: rgb(238, 238, 238);
+}
+
+.icon {
+    cursor: pointer;
+    margin-right: 25px;
+}
+
 /* Fim: Estilos Extras (utilitários, labels, inputs etc) */

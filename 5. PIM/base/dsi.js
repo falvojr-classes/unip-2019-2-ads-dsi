@@ -31,3 +31,16 @@ function criarColuna(classeColuna) {
     coluna.classList.add(classeColuna, 'center');
     return coluna;
 }
+
+function criarIcone(iconeSrc) {
+    const icone = criarElemento('img');
+    icone.src = iconeSrc;
+    icone.classList.add('icon');
+    return icone;
+}
+
+function buscarQueryString(chave) {
+    // https://stackoverflow.com/a/901144/3072570
+    const queryString = new URLSearchParams(window.location.search);
+    return queryString.get(chave);
+}
