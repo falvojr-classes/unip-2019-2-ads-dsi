@@ -1,5 +1,6 @@
+const usuarioLogado = buscarJsonLocalmente('usuarioLogado');
+
 function inicializar() {
-    const usuarioLogado = buscarJsonLocalmente('usuarioLogado');
     const saudacao = buscarElementoPorId('saudacao');
     saudacao.innerHTML = `Bem vindo, ${usuarioLogado.nome}!`;
 
@@ -7,6 +8,8 @@ function inicializar() {
 }
 
 async function listarVeiculos() {
+    const gridVeiculos = buscarElementoPorId('gridVeiculos');
+    gridVeiculos.innerHTML = '';
     try {
         const resp = await fetch('http://localhost:8080/veiculos', {
             method: 'GET',
@@ -16,7 +19,6 @@ async function listarVeiculos() {
         });
         if (resp.ok) {
             const veiculos = await resp.json();
-            const gridVeiculos = buscarElementoPorId('gridVeiculos');
 
             for(let i = 0; i < veiculos.length; i++) {
                 const veiculo = veiculos[i];
@@ -47,8 +49,32 @@ async function listarVeiculos() {
                     excluirVeiculo(veiculo.id);
                 };
 
+                const abrirOcorrencia = criarIcone('../img/ocorrencia.svg');
+                abrirOcorrencia.onclick = function() { 
+                    // Limpar os campos da Dialos
+                    buscarElementoPorId('titulo').value = '';
+                    buscarElementoPorId('descricao').value = '';
+                    
+                    // Abrir a Dialos
+                    const dialog = buscarElementoPorId('ocorrenciaDialog');
+                    dialog.showModal();
+
+                    // Criar o evento de click de Cancelar
+                    const cancelar = buscarElementoPorId('cancelar');
+                    cancelar.onclick = function() { 
+                        dialog.close();
+                    };
+
+                    // Criar o evento de click de Salvar
+                    const salvar = buscarElementoPorId('salvar');
+                    salvar.onclick = function() { 
+                        incluirOcorrencia(veiculo.id, usuarioLogado.id, dialog);
+                    };
+                };
+
                 colunaBotoes.appendChild(editar);
                 colunaBotoes.appendChild(excluir);
+                colunaBotoes.appendChild(abrirOcorrencia);
 
                 linha.appendChild(modelo);
                 linha.appendChild(marca);
@@ -81,6 +107,7 @@ async function excluirVeiculo(id) {
             });
             if (resp.ok) {
                 alert(`Veiculo ${id} excluido com sucesso!`)
+                listarVeiculos();
             } else {
                 const erro = await resp.json();
                 alert(erro.mensagem);
@@ -98,4 +125,36 @@ function cadastrarVeiculo() {
 
 function editarVeiculo(id) {
     redirecionar(`manter-veiculo.html?id=${id}`);
+}
+
+async function incluirOcorrencia(veiculoId, usuarioId, dialog) {
+    try {
+        const ocorrencia = {
+            titulo: buscarElementoPorId('titulo').value,
+            descricao: buscarElementoPorId('descricao').value,
+            veiculo: {
+                id: veiculoId
+            },
+            usuario: {
+                id: usuarioId
+            }
+        };
+        const resp = await fetch(`http://localhost:8080/ocorrencias`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(ocorrencia)
+        });
+        if (resp.ok) {
+            dialog.close();
+            alert(`Ocorrencia cadastrada com sucesso!`)
+        } else {
+            const erro = await resp.json();
+            alert(erro.mensagem);
+        }
+    } catch (erro) {
+        console.log(erro);
+        alert("Erro inesperado!");
+    }
 }

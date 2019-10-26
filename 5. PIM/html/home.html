@@ -13,9 +13,35 @@
   <h4 id="saudacao"></h4>
   <div class="row">
     <div id="gridVeiculos" class="col-12">
+      <!-- O conteudo dinamico é inserido aqui -->
     </div>
   </div>
   <button onclick="cadastrarVeiculo()">Cadastrar</button>
+
+  <dialog id="ocorrenciaDialog">
+    <div class="row">
+        <div class="col-3">
+          <label for="titulo">Titulo:</label>
+        </div>
+        <div class="col-9">
+          <input id="titulo" type="text" placeholder="Digite o titulo" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <label for="descricao">Descricão:</label>
+        </div>
+        <div class="col-9">
+            <textarea id="descricao" rows="5" cols="50" maxlength="255"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <button id="salvar">Salvar</button>
+          <button id="cancelar" class="cancel">Cancelar</button>
+        </div>
+      </div>
+  </dialog>
 
   <script src="../base/dsi.js"></script>
   <script src="../js/home.js"></script>
