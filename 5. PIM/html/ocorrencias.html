@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>PIM – Ocorrências</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../base/dsi.css" />
+</head>
+
+<body onload="inicializar()">
+  <h1>Lista de Ocorrências</h1>
+  <h4 id="saudacao"></h4>
+  <div class="row">
+    <div id="gridOcorrencias" class="col-12">
+      <!-- O conteudo dinamico é inserido aqui -->
+    </div>
+  </div>
+
+  <dialog id="ocorrenciaDialog">
+    <div class="row">
+        <div class="col-3">
+          <label for="titulo">Titulo:</label>
+        </div>
+        <div class="col-9">
+          <input id="titulo" type="text" placeholder="Digite o titulo" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <label for="descricao">Descricão:</label>
+        </div>
+        <div class="col-9">
+            <textarea id="descricao" rows="5" cols="50" maxlength="255"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <button id="salvar">Salvar</button>
+          <button id="encerrar" class="warning">Encerrar</button>
+          <button id="cancelar" class="cancel">Cancelar</button>
+        </div>
+      </div>
+  </dialog>
+
+  <script src="../base/dsi.js"></script>
+  <script src="../js/ocorrencias.js"></script>
+</body>
+
+</html>

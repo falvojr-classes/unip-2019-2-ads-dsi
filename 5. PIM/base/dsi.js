@@ -44,3 +44,7 @@ function buscarQueryString(chave) {
     const queryString = new URLSearchParams(window.location.search);
     return queryString.get(chave);
 }
+
+function voltar() {
+    window.history.back();
+}

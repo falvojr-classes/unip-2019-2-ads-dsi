@@ -111,4 +111,12 @@ input[type='submit']:hover, button:hover {
     background-color: rgb(200, 0, 0);
 }
 
+.warning {
+    background-color: orangered;
+}
+
+.warning:hover {
+    background-color: rgb(172, 46, 0);
+}
+
 /* Fim: Estilos Extras (utilitários, labels, inputs etc) */

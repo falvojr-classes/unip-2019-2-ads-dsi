@@ -14,7 +14,7 @@ async function logar() {
         if(resp.ok) {
             const usuarioLogado = await resp.json();
             salvarJsonLocalmente("usuarioLogado", usuarioLogado);
-            redirecionar("home.html");
+            redirecionar("veiculos.html");
         } else {
             const erro = await resp.json();
             alert(erro.mensagem);

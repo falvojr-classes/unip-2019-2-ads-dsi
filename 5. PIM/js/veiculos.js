@@ -55,7 +55,7 @@ async function listarVeiculos() {
                     buscarElementoPorId('titulo').value = '';
                     buscarElementoPorId('descricao').value = '';
                     
-                    // Abrir a Dialos
+                    // Abrir a Dialog
                     const dialog = buscarElementoPorId('ocorrenciaDialog');
                     dialog.showModal();
 

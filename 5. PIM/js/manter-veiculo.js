@@ -54,7 +54,7 @@ async function salvarVeiculo() {
         });
         if (resp.ok) {
             alert('Veiculo cadastrado com sucesso!');
-            redirecionar('home.html');
+            voltar();
         } else {
             const erro = await resp.json();
             alert(erro.mensagem);
