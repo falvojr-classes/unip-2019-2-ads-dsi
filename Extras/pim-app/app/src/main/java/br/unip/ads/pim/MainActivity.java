@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void redirecionarParaHome(Usuario usuario) {
-        Intent home = new Intent(this, HomeActivity.class);
-        home.putExtra(HomeActivity.EXTRA_USUARIO, Parcels.wrap(usuario));
+        Intent home = new Intent(this, VeiculosActivity.class);
+        home.putExtra(VeiculosActivity.EXTRA_USUARIO, Parcels.wrap(usuario));
         startActivity(home);
     }
 
