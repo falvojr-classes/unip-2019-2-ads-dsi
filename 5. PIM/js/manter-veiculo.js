@@ -5,6 +5,7 @@ const marca = buscarElementoPorId('marca');
 const modelo = buscarElementoPorId('modelo');
 const tipo = buscarElementoPorId('tipo');
 const inativo = buscarElementoPorId('inativo');
+const imagem = buscarElementoPorId('imagem');
 
 async function inicializar() {
     if (id) {
@@ -23,6 +24,7 @@ async function inicializar() {
                 modelo.value = veiculo.modelo;
                 tipo.value = veiculo.tipo;
                 inativo.checked = veiculo.inativo;
+                imagem.value = veiculo.imagem;
             } else {
                 const erro = await resp.json();
                 alert(erro.mensagem);
@@ -44,16 +46,28 @@ async function salvarVeiculo() {
         veiculo.modelo = modelo.value;
         veiculo.tipo = tipo.value;
         veiculo.inativo = inativo.checked;
+        veiculo.imagem = imagem.value;
 
-        const resp = await fetch(`http://localhost:8080/veiculos`, {
-            method: 'POST',
+        let endpoint = `http://localhost:8080/veiculos`;
+        let metodo = 'POST';
+        if (id) {
+            endpoint = `${endpoint}/${id}`;
+            metodo = 'PUT';
+        }
+
+        const resp = await fetch(endpoint, {
+            method: metodo,
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(veiculo)
         });
         if (resp.ok) {
-            alert('Veiculo cadastrado com sucesso!');
+            if (id) {
+                alert('Veiculo alterado com sucesso!');
+            } else {
+                alert('Veiculo cadastrado com sucesso!');
+            }
             voltar();
         } else {
             const erro = await resp.json();
