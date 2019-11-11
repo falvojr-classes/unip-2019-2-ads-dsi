@@ -17,5 +17,6 @@
 ## Trabalhos Preparatórios
 
 - [NP1](https://docs.google.com/document/d/1ndEKfg276AFfw79Nt5HxM-dxmiTGr1VQbR_PTDSjtdc/edit?usp=sharing)
+- [NP2](https://docs.google.com/document/d/1w24iIA56uNi3qJhKJRIkRaKwEdZ-y0DIQftv0pGovA4/edit?usp=sharing)
 
 ## Link para o Projeto Base: [Template PIM (API)](https://github.com/falvojr-classes/unip-2019-2-ads-template-pim)
