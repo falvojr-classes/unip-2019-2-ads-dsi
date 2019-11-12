@@ -119,4 +119,11 @@ input[type='submit']:hover, button:hover {
     background-color: rgb(172, 46, 0);
 }
 
+.header {
+    padding: 4px;
+    font-size: medium;
+    background-color: black;
+    color: white; 
+}
+
 /* Fim: Estilos Extras (utilitários, labels, inputs etc) */

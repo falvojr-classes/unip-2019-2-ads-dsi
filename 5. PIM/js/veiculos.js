@@ -2,24 +2,61 @@ const usuarioLogado = buscarJsonLocalmente('usuarioLogado');
 
 function inicializar() {
     const saudacao = buscarElementoPorId('saudacao');
-    saudacao.innerHTML = `Bem vindo, ${usuarioLogado.nome}!`;
+    if (ehCliente()) {
+        saudacao.innerHTML = `Bem vindo, cliente ${usuarioLogado.nome}!`;
+    } else {
+        saudacao.innerHTML = `Bem vindo, funcionário ${usuarioLogado.nome}!`;
+    }
 
     listarVeiculos();
+}
+
+function ehCliente() {
+    return usuarioLogado.tipo == 'CLIENTE';
 }
 
 async function listarVeiculos() {
     const gridVeiculos = buscarElementoPorId('gridVeiculos');
     gridVeiculos.innerHTML = '';
+
+    const url = `http://localhost:8080/veiculos?ehCliente=${ehCliente()}`;
+
     try {
-        const resp = await fetch('http://localhost:8080/veiculos', {
+        const resp = await fetch(url, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
         });
         if (resp.ok) {
-            const veiculos = await resp.json();
+            // Criar cabecalho:
+            const linhaHeader = criarElemento('div');
+            linhaHeader.classList.add('row');
+            linhaHeader.classList.add('header');
+            const headerModelo = criarColuna('col-2');
+            headerModelo.innerHTML = '<strong>Modelo</strong>';
+            const headerMarca = criarColuna('col-2');
+            headerMarca.innerHTML = '<strong>Marca</strong>';
+            const headerPlaca = criarColuna('col-2');
+            headerPlaca.innerHTML = '<strong>Placa</strong>';
+            const headerAno = criarColuna('col-1');
+            headerAno.innerHTML = '<strong>Ano</strong>';
+            const headerTipo = criarColuna('col-2');
+            headerTipo.innerHTML = '<strong>Tipo</strong>';
+            const headerAcoes = criarColuna('col-3');
+            headerAcoes.innerHTML = '<strong>Acoes</strong>';
 
+            linhaHeader.appendChild(headerModelo);
+            linhaHeader.appendChild(headerMarca);
+            linhaHeader.appendChild(headerPlaca);
+            linhaHeader.appendChild(headerAno);
+            linhaHeader.appendChild(headerTipo);
+            linhaHeader.appendChild(headerAcoes);
+
+            gridVeiculos.appendChild(linhaHeader);
+
+            // Criar linhas (dinamicamente)
+            const veiculos = await resp.json();
             for(let i = 0; i < veiculos.length; i++) {
                 const veiculo = veiculos[i];
                 const linha = criarElemento('div');
@@ -32,12 +69,12 @@ async function listarVeiculos() {
                 marca.innerHTML = veiculo.marca;
                 const placa = criarColuna('col-2');
                 placa.innerHTML = veiculo.placa;
-                const ano = criarColuna('col-2');
+                const ano = criarColuna('col-1');
                 ano.innerHTML = veiculo.ano;
                 const tipo = criarColuna('col-2');
                 tipo.innerHTML = veiculo.tipo;
 
-                const colunaBotoes = criarColuna('col-2');
+                const colunaBotoes = criarColuna('col-3');
 
                 const editar = criarIcone('../img/editar.svg');
                 editar.onclick = function() { 
@@ -49,7 +86,7 @@ async function listarVeiculos() {
                     excluirVeiculo(veiculo.id);
                 };
 
-                const abrirOcorrencia = criarIcone('../img/ocorrencia.svg');
+                const abrirOcorrencia = criarIcone('../img/abrir-ocorrencia.svg');
                 abrirOcorrencia.onclick = function() { 
                     // Limpar os campos da Dialos
                     buscarElementoPorId('titulo').value = '';
@@ -72,9 +109,15 @@ async function listarVeiculos() {
                     };
                 };
 
+                const listarOcorrencias = criarIcone('../img/listar-ocorrencias.svg');
+                listarOcorrencias.onclick = function() { 
+                    redirecionar(`ocorrencias.html?idVeiculo=${veiculo.id}`);
+                };
+
                 colunaBotoes.appendChild(editar);
                 colunaBotoes.appendChild(excluir);
                 colunaBotoes.appendChild(abrirOcorrencia);
+                colunaBotoes.appendChild(listarOcorrencias);
 
                 linha.appendChild(modelo);
                 linha.appendChild(marca);
